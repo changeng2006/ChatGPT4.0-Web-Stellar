@@ -8,7 +8,7 @@ function balance($API_KEY){
         ),'ssl'=>array('verify_peer' => false,'verify_peer_name' => false)
     );
     $context = stream_context_create($options);
-    $response = @file_get_contents('https://api.openai.com/dashboard/billing/credit_grants', false, $context);
+    $response = @file_get_contents('https://reverse-proxy.cgweb.top/proxy/api.openai.com/dashboard/billing/credit_grants', false, $context);
 
     if (isset($response)) {
 
@@ -43,7 +43,7 @@ function completions($API_KEY,$TEXT)
         ),'ssl'=>array('verify_peer' => false,'verify_peer_name' => false)
     );
     $context = stream_context_create($options);
-    $response = @file_get_contents('https://api.openai.com/v1/completions', false, $context);
+    $response = @file_get_contents('https://reverse-proxy.cgweb.top/proxy/api.openai.com/v1/completions', false, $context);
 
     $text = "服务器连接错误,请稍后再试!";
 
@@ -79,7 +79,7 @@ function imges($API_KEY,$TEXT)
         ),'ssl'=>array('verify_peer' => false,'verify_peer_name' => false)
     );
     $context = stream_context_create($options);
-    $response = @file_get_contents('https://api.openai.com/v1/images/generations', false, $context);
+    $response = @file_get_contents('https://reverse-proxy.cgweb.top/proxy/api.openai.com/v1/images/generations', false, $context);
 
     $text['text'] ="服务器连接错误,请稍后再试!";
     $text['status'] = 0;
